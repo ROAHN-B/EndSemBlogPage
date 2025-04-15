@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <style>
+      table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+    </style>
+    
+    <h1>Welcome to my Blog Page!</h1>
+    <img src="picture.jpg.jpeg" alt="picture" width="80" height="100" >
+
+    <p>Hi, My name is Rohan Belsare and I'm currently pursuingBTech degree from WIT solapur.
+        I am a passionate learner and a tech enthusiast. I love to learn new things and explore new technologies
+        and I am excited to share my knowledge with you all through this blog.<span id="dots">...</span><span id="more">
+            I am a Bachelor's student in Electronics and Computer Engineering at Walchand Institute of Technology, Solapur. 
+            I have a strong passion for programming, specializing in C and Python. My academic and project work has honed my skills in problem-solving, algorithm development, and embedded systems. 
+            I thrive on applying technical knowledge to practical applications and am keen to stay updated with the latest technological trends. I aim to contribute to innovative projects and collaborate with dynamic teams. 
+            Let's connect and explore opportunities to work together
+            
+        </span></p>
+        <div class="section">
+          <button onclick="getWeather()">Show Weather Forecast</button>
+          <p id="weatherInfo">Weather info will appear here...</p>
+        </div>
+        <div class="section">
+          <button onclick="showSkills()">Show Academic Skills</button>
+          <p id="skillsInfo" style="display:none;">
+            • C, Python, HTML, CSS, JavaScript<br>
+            • Embedded Systems, IoT, Data Structures<br>
+            • Problem Solving, Debugging, Version Control (Git)
+          </p>
+        
+          <button onclick="showProjects()">Show Projects</button>
+          <p id="projectsInfo" style="display:none;">
+            • Weather App using OpenWeatherMap API<br>
+            • Attendance Tracker using Firebase<br>
+            • IoT-based Smart Light Control<br>
+            • Blog Page with Weather Integration
+          </p>
+        </div>
+        <div class="section">
+          <button onclick="toggleSubjects()">Show Learned Subjects</button>
+          <p id="subjectsInfo" style="display: none;">
+            • Digital Communication<br>
+            • Microcontroller<br>
+            • Computer Networks<br>
+            • Data Structures<br>
+            • Open - Elective(Cyber laws)<br>
+            • Information and system management<br>
+            • MDM-II( UI/UX)
+          </p>
+        </div>
+        <div class="section">
+          <!-- Button for Whole Program -->
+          <button onclick="showProgramDetails()">Show My Whole Program</button>
+          <p id="programInfo" style="display: none;">
+            
+          </p>
+        </div>
+        <div class="section">
+          <!-- Submission Button -->
+          <button onclick="toggleSubmissionForm()">Submit Your Details</button>
+        
+          <!-- Submission Form (hidden initially) -->
+          <div id="submissionForm" style="display: none;">
+            <form action="submit_details.html" method="POST">
+              <label for="name">Name:</label><br>
+              <input type="text" id="name" name="name" value="Rohan Belsare" readonly><br><br>
+        
+              <label for="rollNo">Roll Number:</label><br>
+              <input type="text" id="rollNo" name="rollNo" value="06 and 35" readonly><br><br>
+        
+              
+            </form>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        <table class="tb" id="mytable">
+            <tr>
+              <th>Semester</th>
+              <th>Percentage</th>
+              <th>CGPA</th>
+            </tr>
+            <tr>
+              <td>First</td>
+              <td>85.85%</td>
+              <td>9.58</td>
+            </tr>
+            <tr>
+              <td>Second</td>
+              <td>88.70%</td>
+              <td>9.91</td>
+            </tr>
+            <tr>
+              <td>Third</td>
+              <td>89.71%</td>
+              <td>9.73</td>
+            </tr>
+          </table>
+          
+          
+          <br />
+          <button onclick="toggle(this);">Hide table</button>
+        
+    
+    <button onclick="myFunction()" id="myBtn">Read more</button>
+    
+    
+    
+
+    <script >
+      function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+  
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+    }
+  }
+  let toggle = button => {
+    let element = document.getElementById("mytable");
+    let hidden = element.getAttribute("hidden");
+
+    if (hidden) {
+       element.removeAttribute("hidden");
+       button.innerText = "Hide table";
+    } else {
+       element.setAttribute("hidden", "hidden");
+       button.innerText = "Show table";
+    }
+  }
+  function showSkills() {
+  const skills = document.getElementById("skillsInfo");
+  skills.style.display = skills.style.display === "none" ? "block" : "none";
+}
+
+function showProjects() {
+  const projects = document.getElementById("projectsInfo");
+  projects.style.display = projects.style.display === "none" ? "block" : "none";
+}
+function toggleSubjects() {
+  const subjects = document.getElementById("subjectsInfo");
+  const button = event.target;
+
+  if (subjects.style.display === "none") {
+    subjects.style.display = "block";
+    button.textContent = "Hide Learned Subjects";
+  } else {
+    subjects.style.display = "none";
+    button.textContent = "Show Learned Subjects";
+  }
+}
+function showProgramDetails() {
+  const program = document.getElementById("programInfo");
+  const button = event.target;
+
+  if (program.style.display === "none") {
+    program.style.display = "block";
+    button.textContent = "Hide Program Details";
+  } else {
+    program.style.display = "none";
+    button.textContent = "Show My Whole Program";
+  }
+}
+function toggleSubmissionForm() {
+  const form = document.getElementById("submissionForm");
+  const button = event.target;
+
+  if (form.style.display === "none") {
+    form.style.display = "block";
+    button.textContent = "Hide Submission Form";
+  } else {
+    form.style.display = "none";
+    button.textContent = "Submit Your Details";
+  }
+}
+
+
+
+  function getWeather() {
+  const apiKey = "694629e39afbde610dd74c26d6d7b811"; 
+  const city = "Solapur";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const weather = `
+        📍 ${data.name}: ${data.weather[0].description}<br>
+        🌡 Temp: ${data.main.temp} °C<br>
+        💧 Humidity: ${data.main.humidity}%<br>
+        🌬 Wind Speed: ${data.wind.speed} m/s
+      `;
+      document.getElementById("weatherInfo").innerHTML = weather;
+    })
+    .catch(error => {
+      document.getElementById("weatherInfo").textContent = "Could not fetch weather data.";
+      console.error("Error fetching weather:", error);
+    });
+}
+
+         
+    </script>
+</body>
+</html>
