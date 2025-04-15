@@ -13,6 +13,7 @@
     border: 1px solid black;
     border-collapse: collapse;
   }
+  
     </style>
     
     <h1>Welcome to my Blog Page!</h1>
@@ -60,17 +61,19 @@
           </p>
         </div>
         <div class="section">
-          <!-- Button for Whole Program -->
           <button onclick="showProgramDetails()">Show My Whole Program</button>
           <p id="programInfo" style="display: none;">
+            <a href="https://github.com/ROAHN-B/EndSemBlogPage/blob/main/index.html" target="_blank">
+              <button>Visit My GitHub</button>
+            </a>
             
           </p>
         </div>
         <div class="section">
-          <!-- Submission Button -->
+          
           <button onclick="toggleSubmissionForm()">Submit Your Details</button>
         
-          <!-- Submission Form (hidden initially) -->
+          
           <div id="submissionForm" style="display: none;">
             <form action="submit_details.html" method="POST">
               <label for="name">Name:</label><br>
@@ -199,7 +202,7 @@ function toggleSubmissionForm() {
 
   function getWeather() {
   const apiKey = "694629e39afbde610dd74c26d6d7b811"; 
-  const city = "Solapur";
+  const city = "solapur";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   fetch(url)
