@@ -1,228 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rohan Belsare | Blog Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #005a9c;
+      text-align: center;
+      margin: 20px 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    img {
+      display: block;
+      margin: 10px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Button Styles */
+    button {
+      padding: 10px 15px;
+      margin: 10px 5px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    /* Section Styles */
+    .section {
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      width: 80%;
+      max-width: 800px;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+    }
+
+    #submissionForm input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    a button {
+      background-color: #28a745;
+    }
+
+    a button:hover {
+      background-color: #1e7e34;
+    }
+
+    /* Toggle Effects */
+    .toggle-content {
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+  </style>
 </head>
 <body>
-    <style>
-      table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  
-    </style>
-    
-    <h1>Welcome to my Blog Page!</h1>
-    <img src="picture.jpg.jpeg" alt="picture" width="80" height="100" >
 
-    <p>Hi, My name is Rohan Belsare and I'm currently pursuingBTech degree from WIT solapur.
-        I am a passionate learner and a tech enthusiast. I love to learn new things and explore new technologies
-        and I am excited to share my knowledge with you all through this blog.<span id="dots">...</span><span id="more">
-            I am a Bachelor's student in Electronics and Computer Engineering at Walchand Institute of Technology, Solapur. 
-            I have a strong passion for programming, specializing in C and Python. My academic and project work has honed my skills in problem-solving, algorithm development, and embedded systems. 
-            I thrive on applying technical knowledge to practical applications and am keen to stay updated with the latest technological trends. I aim to contribute to innovative projects and collaborate with dynamic teams. 
-            Let's connect and explore opportunities to work together
-            
-        </span></p>
-        <div class="section">
-          <button onclick="getWeather()">Show Weather Forecast</button>
-          <p id="weatherInfo">Weather info will appear here...</p>
-        </div>
-        <div class="section">
-          <button onclick="showSkills()">Show Academic Skills</button>
-          <p id="skillsInfo" style="display:none;">
-            • C, Python, HTML, CSS, JavaScript<br>
-            • Embedded Systems, IoT, Data Structures<br>
-            • Problem Solving, Debugging, Version Control (Git)
-          </p>
-        
-          <button onclick="showProjects()">Show Projects</button>
-          <p id="projectsInfo" style="display:none;">
-            • Weather App using OpenWeatherMap API<br>
-            • Attendance Tracker using Firebase<br>
-            • IoT-based Smart Light Control<br>
-            • Blog Page with Weather Integration
-          </p>
-        </div>
-        <div class="section">
-          <button onclick="toggleSubjects()">Show Learned Subjects</button>
-          <p id="subjectsInfo" style="display: none;">
-            • Digital Communication<br>
-            • Microcontroller<br>
-            • Computer Networks<br>
-            • Data Structures<br>
-            • Open - Elective(Cyber laws)<br>
-            • Information and system management<br>
-            • MDM-II( UI/UX)
-          </p>
-        </div>
-        <div class="section">
-          <button onclick="showProgramDetails()">Show My Whole Program</button>
-          <p id="programInfo" style="display: none;">
-            <a href="https://github.com/ROAHN-B/EndSemBlogPage/blob/main/index.html" target="_blank">
-              <button>Visit My GitHub</button>
-            </a>
-            
-          </p>
-        </div>
-        <div class="section">
-          
-          <button onclick="toggleSubmissionForm()">Submit Your Details</button>
-        
-          
-          <div id="submissionForm" style="display: none;">
-            <form action="submit_details.html" method="POST">
-              <label for="name">Name:</label><br>
-              <input type="text" id="name" name="name" value="Rohan Belsare" readonly><br><br>
-        
-              <label for="rollNo">Roll Number:</label><br>
-              <input type="text" id="rollNo" name="rollNo" value="06 and 35" readonly><br><br>
-        
-              
-            </form>
-          </div>
-        </div>
-        
-        
-        
-        
-        
-        <table class="tb" id="mytable">
-            <tr>
-              <th>Semester</th>
-              <th>Percentage</th>
-              <th>CGPA</th>
-            </tr>
-            <tr>
-              <td>First</td>
-              <td>85.85%</td>
-              <td>9.58</td>
-            </tr>
-            <tr>
-              <td>Second</td>
-              <td>88.70%</td>
-              <td>9.91</td>
-            </tr>
-            <tr>
-              <td>Third</td>
-              <td>89.71%</td>
-              <td>9.73</td>
-            </tr>
-          </table>
-          
-          
-          <br />
-          <button onclick="toggle(this);">Hide table</button>
-        
-    
-    <button onclick="myFunction()" id="myBtn">Read more</button>
-    
-    
-    
+  <h1>Welcome to my Blog Page!</h1>
+  <img src="picture.jpg.jpeg" alt="Rohan Belsare" width="100" height="120">
 
-    <script >
-      function myFunction() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more");
-    var btnText = document.getElementById("myBtn");
-  
-    if (dots.style.display === "none") {
-      dots.style.display = "inline";
-      btnText.innerHTML = "Read more";
-      moreText.style.display = "none";
-    } else {
-      dots.style.display = "none";
-      btnText.innerHTML = "Read less";
-      moreText.style.display = "inline";
+  <p>
+    Hi, My name is Rohan Belsare and I'm currently pursuing a BTech degree from WIT Solapur.
+    I am a passionate learner and a tech enthusiast. I love to learn new things and explore new technologies,
+    and I am excited to share my knowledge with you all through this blog.
+    <span id="dots">...</span>
+    <span id="more" style="display: none;">
+      I am a Bachelor's student in Electronics and Computer Engineering at Walchand Institute of Technology, Solapur.
+      I have a strong passion for programming, specializing in C and Python. My academic and project work has honed my skills in problem-solving, algorithm development, and embedded systems.
+      I thrive on applying technical knowledge to practical applications and am keen to stay updated with the latest technological trends.
+      I aim to contribute to innovative projects and collaborate with dynamic teams.
+      Let's connect and explore opportunities to work together.
+    </span>
+  </p>
+  <button onclick="toggleReadMore()" id="myBtn">Read more</button>
+
+  <!-- Section for Weather Info -->
+  <div class="section">
+    <button onclick="getWeather()">Show Weather Forecast</button>
+    <p id="weatherInfo">Weather info will appear here...</p>
+  </div>
+
+  <!-- Section for Academic Skills and Projects -->
+  <div class="section">
+    <button onclick="toggleSection('skillsInfo')">Show Academic Skills</button>
+    <p id="skillsInfo" class="toggle-content">
+      • C, Python, HTML, CSS, JavaScript<br>
+      • Embedded Systems, IoT, Data Structures<br>
+      • Problem Solving, Debugging, Version Control (Git)
+    </p>
+
+    <button onclick="toggleSection('projectsInfo')">Show Projects</button>
+    <p id="projectsInfo" class="toggle-content">
+      • Weather App using OpenWeatherMap API<br>
+      • Attendance Tracker using Firebase<br>
+      • IoT-based Smart Light Control<br>
+      • Blog Page with Weather Integration
+    </p>
+  </div>
+
+  <!-- Section for Learned Subjects -->
+  <div class="section">
+    <button onclick="toggleSection('subjectsInfo')">Show Learned Subjects</button>
+    <p id="subjectsInfo" class="toggle-content">
+      • Digital Communication<br>
+      • Microcontroller<br>
+      • Computer Networks<br>
+      • Data Structures<br>
+      • Open - Elective (Cyber laws)<br>
+      • Information and System Management<br>
+      • MDM-II (UI/UX)
+    </p>
+  </div>
+
+  <!-- Section for Program Link -->
+  <div class="section">
+    <button onclick="toggleSection('programInfo')">Show My Whole Program</button>
+    <p id="programInfo" class="toggle-content">
+      <a href="https://github.com/ROAHN-B/EndSemBlogPage/blob/main/index.html" target="_blank">
+        <button>Visit My GitHub</button>
+      </a>
+    </p>
+  </div>
+
+  <!-- Section for Submission Form -->
+  <div class="section">
+    <button onclick="toggleSection('submissionForm')">Submit Your Details</button>
+    <div id="submissionForm" class="toggle-content">
+      <form action="submit_details.html" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="Rohan Belsare" readonly><br>
+
+        <label for="rollNo">Roll Number:</label><br>
+        <input type="text" id="rollNo" name="rollNo" value="06 and 35" readonly><br>
+      </form>
+    </div>
+  </div>
+
+  <!-- Section for Certificates -->
+  <div class="section">
+    <button onclick="toggleSection('certificatesImages')">Show Certificates</button>
+    <div id="certificatesImages" class="toggle-content">
+      <img src="cert1.png" alt="Basics of Python" width="300" style="margin: 10px;">
+      <img src="cert2.png" alt="AWS Cloud Practitioner Essentials" width="300" style="margin: 10px;">
+      <img src="cert3.png" alt="Programming Fundamentals using Python - Part 2" width="300" style="margin: 10px;">
+      <img src="cert4.png" alt="Programming Fundamentals using Python - Part 1" width="300" style="margin: 10px;">
+    </div>
+  </div>
+
+  <!-- Semester Performance Table -->
+  <table id="mytable">
+    <tr>
+      <th>Semester</th>
+      <th>Percentage</th>
+      <th>CGPA</th>
+    </tr>
+    <tr>
+      <td>First</td>
+      <td>85.85%</td>
+      <td>9.58</td>
+    </tr>
+    <tr>
+      <td>Second</td>
+      <td>88.70%</td>
+      <td>9.91</td>
+    </tr>
+    <tr>
+      <td>Third</td>
+      <td>89.71%</td>
+      <td>9.73</td>
+    </tr>
+  </table>
+  <button onclick="toggleTable(this)">Hide table</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Read More / Read Less
+    function toggleReadMore() {
+      const dots = document.getElementById("dots");
+      const moreText = document.getElementById("more");
+      const btnText = document.getElementById("myBtn");
+
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        moreText.style.display = "none";
+        btnText.innerText = "Read more";
+      } else {
+        dots.style.display = "none";
+        moreText.style.display = "inline";
+        btnText.innerText = "Read less";
+      }
     }
-  }
-  let toggle = button => {
-    let element = document.getElementById("mytable");
-    let hidden = element.getAttribute("hidden");
 
-    if (hidden) {
-       element.removeAttribute("hidden");
-       button.innerText = "Hide table";
-    } else {
-       element.setAttribute("hidden", "hidden");
-       button.innerText = "Show table";
+    // Toggle Section visibility
+    function toggleSection(id) {
+      const element = document.getElementById(id);
+      element.style.display = (element.style.display === "none") ? "block" : "none";
     }
-  }
-  function showSkills() {
-  const skills = document.getElementById("skillsInfo");
-  skills.style.display = skills.style.display === "none" ? "block" : "none";
-}
 
-function showProjects() {
-  const projects = document.getElementById("projectsInfo");
-  projects.style.display = projects.style.display === "none" ? "block" : "none";
-}
-function toggleSubjects() {
-  const subjects = document.getElementById("subjectsInfo");
-  const button = event.target;
+    // Toggle Table visibility
+    function toggleTable(button) {
+      const table = document.getElementById("mytable");
+      if (table.style.display === "none") {
+        table.style.display = "table";
+        button.innerText = "Hide table";
+      } else {
+        table.style.display = "none";
+        button.innerText = "Show table";
+      }
+    }
 
-  if (subjects.style.display === "none") {
-    subjects.style.display = "block";
-    button.textContent = "Hide Learned Subjects";
-  } else {
-    subjects.style.display = "none";
-    button.textContent = "Show Learned Subjects";
-  }
-}
-function showProgramDetails() {
-  const program = document.getElementById("programInfo");
-  const button = event.target;
+    // Fetch Weather Info
+    function getWeather() {
+      const apiKey = "694629e39afbde610dd74c26d6d7b811";
+      const city = "solapur";
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-  if (program.style.display === "none") {
-    program.style.display = "block";
-    button.textContent = "Hide Program Details";
-  } else {
-    program.style.display = "none";
-    button.textContent = "Show My Whole Program";
-  }
-}
-function toggleSubmissionForm() {
-  const form = document.getElementById("submissionForm");
-  const button = event.target;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const weather = `
+            📍 ${data.name}: ${data.weather[0].description}<br>
+            🌡 Temp: ${data.main.temp} °C<br>
+            💧 Humidity: ${data.main.humidity}%<br>
+            🌬 Wind Speed: ${data.wind.speed} m/s
+          `;
+          document.getElementById("weatherInfo").innerHTML = weather;
+        })
+        .catch(error => {
+          document.getElementById("weatherInfo").textContent = "Could not fetch weather data.";
+          console.error("Error fetching weather:", error);
+        });
+    }
+  </script>
 
-  if (form.style.display === "none") {
-    form.style.display = "block";
-    button.textContent = "Hide Submission Form";
-  } else {
-    form.style.display = "none";
-    button.textContent = "Submit Your Details";
-  }
-}
-
-
-
-  function getWeather() {
-  const apiKey = "694629e39afbde610dd74c26d6d7b811"; 
-  const city = "solapur";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const weather = `
-        📍 ${data.name}: ${data.weather[0].description}<br>
-        🌡 Temp: ${data.main.temp} °C<br>
-        💧 Humidity: ${data.main.humidity}%<br>
-        🌬 Wind Speed: ${data.wind.speed} m/s
-      `;
-      document.getElementById("weatherInfo").innerHTML = weather;
-    })
-    .catch(error => {
-      document.getElementById("weatherInfo").textContent = "Could not fetch weather data.";
-      console.error("Error fetching weather:", error);
-    });
-}
-
-         
-    </script>
 </body>
 </html>
